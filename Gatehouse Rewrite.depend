@@ -1,0 +1,345 @@
+# depslib dependency file v1.0
+1605183752 source:c:\development\projects\gatehouse rewrite\allegrocustom.cpp
+	"allegrocustom.h"
+
+1605183752 c:\development\projects\gatehouse rewrite\allegrocustom.h
+	<string>
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_native_dialog.h>
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\allegro.h
+	"allegro5/base.h"
+	"allegro5/altime.h"
+	"allegro5/bitmap.h"
+	"allegro5/bitmap_draw.h"
+	"allegro5/bitmap_io.h"
+	"allegro5/bitmap_lock.h"
+	"allegro5/blender.h"
+	"allegro5/color.h"
+	"allegro5/config.h"
+	"allegro5/debug.h"
+	"allegro5/display.h"
+	"allegro5/drawing.h"
+	"allegro5/error.h"
+	"allegro5/events.h"
+	"allegro5/file.h"
+	"allegro5/fixed.h"
+	"allegro5/fmaths.h"
+	"allegro5/fshook.h"
+	"allegro5/fullscreen_mode.h"
+	"allegro5/joystick.h"
+	"allegro5/keyboard.h"
+	"allegro5/memory.h"
+	"allegro5/monitor.h"
+	"allegro5/mouse.h"
+	"allegro5/mouse_cursor.h"
+	"allegro5/path.h"
+	"allegro5/system.h"
+	"allegro5/threads.h"
+	"allegro5/timer.h"
+	"allegro5/tls.h"
+	"allegro5/transformations.h"
+	"allegro5/utf8.h"
+	"allegro5/alcompat.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\base.h
+	<errno.h>
+	<limits.h>
+	<limits.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	<sys/types.h>
+	<fortify/fortify.h>
+	<dmalloc.h>
+	"allegro5/internal/alconfig.h"
+
+1491382932 c:\development\libraries\allegro\allegro5\include\allegro5\internal\alconfig.h
+	"allegro5/platform/alplatf.h"
+	"allegro5/platform/alwatcom.h"
+	"allegro5/platform/almngw32.h"
+	"allegro5/platform/albcc32.h"
+	"allegro5/platform/almsvc.h"
+	"allegro5/platform/aliphonecfg.h"
+	"allegro5/platform/alosxcfg.h"
+	"allegro5/platform/alucfg.h"
+	"allegro5/platform/astdint.h"
+	"allegro5/platform/astdbool.h"
+
+1491382933 c:\development\libraries\allegro\allegro5\include\allegro5\platform\alplatf.h
+
+1491382933 c:\development\libraries\allegro\allegro5\include\allegro5\platform\alwatcom.h
+	<io.h>
+	<i86.h>
+	<conio.h>
+	<fcntl.h>
+	<direct.h>
+	<malloc.h>
+
+1491382932 c:\development\libraries\allegro\allegro5\include\allegro5\platform\almngw32.h
+	<io.h>
+	<fcntl.h>
+	<direct.h>
+	<malloc.h>
+	"allegro5/platform/alplatf.h"
+
+1491382933 c:\development\libraries\allegro\allegro5\include\allegro5\platform\albcc32.h
+	<io.h>
+	<fcntl.h>
+	<direct.h>
+	<malloc.h>
+
+1491382933 c:\development\libraries\allegro\allegro5\include\allegro5\platform\almsvc.h
+	<io.h>
+	<fcntl.h>
+	<direct.h>
+	<malloc.h>
+	"allegro5/platform/alplatf.h"
+
+1491382933 c:\development\libraries\allegro\allegro5\include\allegro5\platform\aliphonecfg.h
+	<fcntl.h>
+	<unistd.h>
+
+1491382932 c:\development\libraries\allegro\allegro5\include\allegro5\platform\alosxcfg.h
+	"allegro5/platform/alplatf.h"
+
+1491382932 c:\development\libraries\allegro\allegro5\include\allegro5\platform\alucfg.h
+	<fcntl.h>
+	<unistd.h>
+	"alunix.h"
+	"allegro5/platform/alplatf.h"
+
+1491382933 c:\development\libraries\allegro\allegro5\include\allegro5\platform\alunix.h
+
+1491382933 c:\development\libraries\allegro\allegro5\include\allegro5\platform\astdint.h
+	<inttypes.h>
+	<stdint.h>
+
+1491382933 c:\development\libraries\allegro\allegro5\include\allegro5\platform\astdbool.h
+	<stdbool.h>
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\altime.h
+	"allegro5/base.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\bitmap.h
+	"allegro5/color.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\color.h
+	"allegro5/base.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\bitmap_draw.h
+	"allegro5/bitmap.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\bitmap_io.h
+	"allegro5/bitmap.h"
+	"allegro5/file.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\file.h
+	"allegro5/base.h"
+	"allegro5/path.h"
+	"allegro5/utf8.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\path.h
+	"allegro5/base.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\utf8.h
+	"allegro5/base.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\bitmap_lock.h
+	"allegro5/bitmap.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\blender.h
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\config.h
+	"allegro5/file.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\debug.h
+	<assert.h>
+	"allegro5/base.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\display.h
+	"allegro5/bitmap.h"
+	"allegro5/color.h"
+	"allegro5/events.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\events.h
+	"allegro5/altime.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\drawing.h
+	"allegro5/color.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\error.h
+	"allegro5/base.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\fixed.h
+	"allegro5/base.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\fmaths.h
+	"allegro5/base.h"
+	"allegro5/fixed.h"
+	"allegro5/inline/fmaths.inl"
+
+1491382932 c:\development\libraries\allegro\allegro5\include\allegro5\inline\fmaths.inl
+	"allegro5/error.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\fshook.h
+	"allegro5/base.h"
+	"allegro5/file.h"
+	"allegro5/path.h"
+	<sys/types.h>
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\fullscreen_mode.h
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\joystick.h
+	"allegro5/base.h"
+	"allegro5/events.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\keyboard.h
+	"allegro5/base.h"
+	"allegro5/events.h"
+	"allegro5/keycodes.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\keycodes.h
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\memory.h
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\monitor.h
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\mouse.h
+	"allegro5/base.h"
+	"allegro5/events.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\mouse_cursor.h
+	"allegro5/base.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\system.h
+	"allegro5/config.h"
+	"allegro5/path.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\threads.h
+	"allegro5/altime.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\timer.h
+	"allegro5/base.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\tls.h
+	"allegro5/base.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\transformations.h
+	"allegro5/display.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\alcompat.h
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\allegro_image.h
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\allegro_font.h
+	"allegro5/allegro.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\allegro_ttf.h
+	"allegro5/allegro.h"
+	"allegro5/allegro_font.h"
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\allegro_native_dialog.h
+	"allegro5/allegro.h"
+
+1626771304 source:c:\development\projects\gatehouse rewrite\gamesystem.cpp
+	"gamesystem.h"
+
+1626771304 c:\development\projects\gatehouse rewrite\gamesystem.h
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_physfs.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<physfs.h>
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\allegro_primitives.h
+	<allegro5/allegro.h>
+
+1491382931 c:\development\libraries\allegro\allegro5\include\allegro5\allegro_physfs.h
+	"allegro5/allegro.h"
+
+1491382928 c:\development\libraries\allegro\allegro5\include\physfs.h
+
+1626106701 source:c:\development\projects\gatehouse rewrite\inputsystem.cpp
+	"inputsystem.h"
+
+1626106701 c:\development\projects\gatehouse rewrite\inputsystem.h
+	"gamesystem.h"
+
+1626787743 source:c:\development\projects\gatehouse rewrite\main.cpp
+	<cstdio>
+	<cstdlib>
+	<iostream>
+	<cstring>
+	<ctime>
+	<cmath>
+	<vector>
+	<set>
+	"gamesystem.h"
+	"inputsystem.h"
+	"resource.h"
+	"allegrocustom.h"
+	"area.h"
+	"generator.h"
+	"actor.h"
+	"hero.h"
+
+1626064381 c:\development\projects\gatehouse rewrite\resource.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+
+1626064381 source:c:\development\projects\gatehouse rewrite\resource.cpp
+	"resource.h"
+
+1626787193 c:\development\projects\gatehouse rewrite\area.h
+	"gamesystem.h"
+	"resource.h"
+
+1626787732 source:c:\development\projects\gatehouse rewrite\area.cpp
+	"area.h"
+
+1625917741 source:c:\development\projects\gatehouse rewrite\being.cpp
+	"being.h"
+
+1625923875 c:\development\projects\gatehouse rewrite\being.h
+	"gamesystem.h"
+	"resource.h"
+
+1626147973 source:c:\development\projects\gatehouse rewrite\actor.cpp
+	"actor.h"
+
+1626109237 c:\development\projects\gatehouse rewrite\actor.h
+	"gamesystem.h"
+	"resource.h"
+
+1626147558 source:c:\development\projects\gatehouse rewrite\hero.cpp
+	"hero.h"
+
+1626107146 c:\development\projects\gatehouse rewrite\hero.h
+	<iostream>
+	"actor.h"
+	"inputsystem.h"
+
+1626785439 source:c:\development\projects\gatehouse rewrite\generator.cpp
+	"generator.h"
+
+1626775515 c:\development\projects\gatehouse rewrite\generator.h
+	<iostream>
+	<fstream>
+	<string>
+	<vector>
+	<cmath>
+
