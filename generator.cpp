@@ -99,8 +99,8 @@ void Generator::GenerateFloor(int genW, int genH, std::vector<int>&result)
         prefabContent.clear();
         doorableElements.clear();
 
-        int prefabWidth = ((rand()%3)*2) + 7; // 7, 9, 11.
-        int prefabArea = prefabWidth*prefabWidth;
+        int prefabLength = ((rand()%3)*2) + 7; // 7, 9, 11.
+        int prefabArea = prefabLength*prefabLength;
         int prefabIndex = rand()%10;   // 0-9
         int prefabRotation = rand()%4; // Rotation*90 degrees.
         int prefabXFlip = rand()%1;    // Flip prefab horizontally if == 1.
@@ -116,11 +116,11 @@ void Generator::GenerateFloor(int genW, int genH, std::vector<int>&result)
         std::vector<int>nothing;
         std::vector<int>&prefabRef = nothing;
 
-        if(prefabWidth == 7)
+        if(prefabLength == 7)
             prefabRef = prefabs7x7;
-        if(prefabWidth == 9)
+        if(prefabLength == 9)
             prefabRef = prefabs9x9;
-        else if(prefabWidth == 11)
+        else if(prefabLength == 11)
             prefabRef = prefabs11x11;
 
         prefabContent = std::vector<int>(prefabRef.begin() + prefabArea*prefabIndex,
@@ -147,13 +147,15 @@ void Generator::GenerateFloor(int genW, int genH, std::vector<int>&result)
         {
             bool searchOccupied = false;
 
-            if(searchX > 0 && searchX+prefabWidth < genW
-               && searchY > 0 && searchY+prefabWidth < genH) // Search is within bounds
+            if(searchX >= 0
+               && searchX+prefabLength < genW
+               && searchY >= 0
+               && searchY+prefabLength < genH) // Search is within bounds
             {
                 // Scan search area in the generation field for occupied space (not sky)
-                for(int y = 0; y < prefabWidth; y++)
+                for(int y = 0; y < prefabLength; y++)
                 {
-                    for(int x = 0; x < prefabWidth; x++)
+                    for(int x = 0; x < prefabLength; x++)
                     {
                         if(generation[(searchY+y) * genW + (searchX+x)] != GEN_SKY)
                             searchOccupied = true;
@@ -165,14 +167,14 @@ void Generator::GenerateFloor(int genW, int genH, std::vector<int>&result)
                         break;
                 }
 
-                // Copy prefab to the search area in the generation field if the search area is unnocupied.
+                // Copy prefab to generation field if search area is unnocupied.
                 if(!searchOccupied)
                 {
-                    for(int y = 0; y < prefabWidth; y++)
+                    for(int y = 0; y < prefabLength; y++)
                     {
-                        for(int x = 0; x < prefabWidth; x++)
+                        for(int x = 0; x < prefabLength; x++)
                         {
-                            generation[(searchY+y) * genW + (searchX+x)] = prefabContent[y*prefabWidth+x];
+                            generation[(searchY+y)*genW +(searchX+x)] = prefabContent[(y*prefabLength)+x];
                         }
                     }
                     searchComplete = true;

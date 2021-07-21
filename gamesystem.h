@@ -21,8 +21,12 @@ const float FPS = 60;
 const int SCREEN_W = 1024;
 const int SCREEN_H = 768;
 
-const int CELL_WIDTH = 32;
-const int CELL_HEIGHT = 32;
+const int TILE_WIDTH = 32;
+const int TILE_HEIGHT = 32;
+
+const int VIEWPORT_CELL_WIDTH = 24;
+const int VIEWPORT_CELL_HEIGHT = 24;
+
 
 enum enumMainPhases
 {
@@ -41,6 +45,13 @@ extern ALLEGRO_EVENT_QUEUE *eventQueue;
 extern ALLEGRO_TIMER *FPStimer;
 extern ALLEGRO_EVENT ev;
 extern ALLEGRO_MOUSE_STATE mouseState;
+
+
+/// Debug directives - comment to disable
+
+#define NM_OUTPUTS_DEBUG
+#define ACTOR_DEBUG
+#define AREA_DEBUG
 
 
 #endif // GAMESYSTEM_H_INCLUDED

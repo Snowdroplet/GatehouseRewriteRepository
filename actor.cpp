@@ -2,8 +2,9 @@
 
 Actor::Actor()
 {
-    hasSprite = false;
+    isHero = false;
 
+    hasSprite = false;
     hasAnimation = false;
 }
 
@@ -56,23 +57,39 @@ void Actor::Update()
 void Actor::Drawing()
 {
     if(hasSprite)
-        al_draw_bitmap_region(gfxActorSheet,
+    {
+        if(isHero)
+            al_draw_bitmap_region(gfxActorSheet,
 
-                          (animationIndex+animationFrame) * CELL_WIDTH,
-                          spriteIndex * CELL_HEIGHT,
+                          (animationIndex+animationFrame) * TILE_WIDTH,
+                          spriteIndex * TILE_HEIGHT,
 
-                          CELL_WIDTH,
-                          CELL_HEIGHT,
+                          TILE_WIDTH,
+                          TILE_HEIGHT,
+
+                          VIEWPORT_CELL_WIDTH/2 * TILE_WIDTH,
+                          VIEWPORT_CELL_HEIGHT/2 * TILE_HEIGHT,
+                          0);
+
+        else
+            al_draw_bitmap_region(gfxActorSheet,
+
+                          (animationIndex+animationFrame) * TILE_WIDTH,
+                          spriteIndex * TILE_HEIGHT,
+
+                          TILE_WIDTH,
+                          TILE_HEIGHT,
 
                           xPosition,
                           yPosition,
                           0);
+    }
 }
 
 void Actor::SnapToCell()
 {
-    destXPosition = xPosition = xCell*CELL_WIDTH;
-    destYPosition = yPosition = yCell*CELL_HEIGHT;
+    destXPosition = xPosition = xCell*TILE_WIDTH;
+    destYPosition = yPosition = yCell*TILE_HEIGHT;
 
     atDest = true;
 }
@@ -90,8 +107,8 @@ void Actor::Move(int x, int y)
     xCell+= x;
     yCell+= y;
 
-    destXPosition = xCell*CELL_WIDTH;
-    destYPosition = yCell*CELL_HEIGHT;
+    destXPosition = xCell*TILE_WIDTH;
+    destYPosition = yCell*TILE_HEIGHT;
 
     atDest = false;
 
@@ -143,3 +160,37 @@ void Actor::SetAnimation(int a)
     }
 
 }
+
+float Actor::GetXPosition()
+{
+    return xPosition;
+}
+
+float Actor::GetYPosition()
+{
+    return yPosition;
+}
+
+float Actor::GetXCell()
+{
+    return xCell;
+}
+
+float Actor::GetYCell()
+{
+    return yCell;
+}
+
+bool Actor::IsHero()
+{
+    return isHero;
+}
+
+#ifdef ACTOR_DEBUG
+void Actor::Debug()
+{
+    std::cout << "-- Hero --" << std::endl;
+    std::cout << "x Cell: " << xCell << " || y Cell: " << yCell << std::endl;
+    std::cout << "x Pos: " << xPosition << " || y Pos: " << yPosition << std::endl;
+}
+#endif

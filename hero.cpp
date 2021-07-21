@@ -2,7 +2,7 @@
 
 Hero::Hero()
 {
-
+    isHero = true;
 }
 
 Hero::~Hero()

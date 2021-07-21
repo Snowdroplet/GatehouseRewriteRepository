@@ -49,7 +49,7 @@ void LoadingDrawing();
 void TitleDrawing();
 
 /// Objects and containers ###########################
-Area area(48,48);
+Area area(100,100, VIEWPORT_CELL_WIDTH, VIEWPORT_CELL_HEIGHT);
 
 std::vector<Actor*>actors;
 Hero*hero;
@@ -134,12 +134,12 @@ int main(int argc, char *argv[])
 
     hero = new Hero();
     hero->InitTemplate(HERO_TEMPLATE_GUARDIAN);
-    hero->SetXYCell(12,12);
+    hero->SetXYCell(0,0);
 
     actors.push_back(hero);
 
     Generator generator;
-    generator.GenerateFloor(area.GetWidth(), area.GetHeight(), area.floor);
+    generator.GenerateFloor(area.GetCellWidth(), area.GetCellHeight(), area.floor);
 
     while(!gameExit)
     {
@@ -190,7 +190,6 @@ void GameLogic()
 
     static int keyInputCD = 0;
     const int keyInputDelay = 10;
-
     if(keyInputCD > 0)
         keyInputCD --;
 
@@ -202,12 +201,33 @@ void GameLogic()
                 keyInputCD = keyInputDelay;
         }
 
+
     }
 
     for(std::vector<Actor*>::iterator it = actors.begin(); it != actors.end(); ++it)
     {
         (*it)->Update();
     }
+
+#ifdef NM_OUTPUTS_DEBUG
+static int debugOutputDelay = 0;
+
+if(keyInput[KEY_N] && keyInput[KEY_M] && debugOutputDelay == 0)
+{
+    debugOutputDelay = 20;
+ #ifdef ACTOR_DEBUG
+    hero->Debug();
+ #endif // ACTOR_DEBUG
+ #ifdef AREA_DEBUG
+    area.Debug();
+ #endif
+}
+
+if(debugOutputDelay > 0)
+    debugOutputDelay --;
+
+#endif // F12_OUTPUTS_DEBUG
+
 }
 
 void LoadingLogic()
@@ -227,13 +247,11 @@ void GameDrawing()
         redraw = false;
         al_clear_to_color(al_map_rgb(0,0,0));
 
-
-        area.DrawTiles();
-
+        area.DrawTiles(hero->GetXPosition(), hero->GetYPosition());
 
         for(std::vector<Actor*>::iterator it = actors.begin(); it != actors.end(); ++it)
         {
-            (*it)->Drawing();
+                (*it)->Drawing();
         }
 
 

@@ -5,6 +5,40 @@
 #include "gamesystem.h"
 #include "resource.h"
 
+class Area
+{
+    int cellWidth;    // in cells.
+    int cellHeight;
+
+    int pxWidth;      // in pixels.
+    int pxHeight;
+
+    int viewportCellWidth;
+    int viewportCellHeight;
+
+    int viewportPxWidth;
+    int viewportPxHeight;
+
+    int xDrawCutoff;  // Number of tiles from viewport center to draw.
+    int yDrawCutoff;
+
+public:
+    std::vector<int>floor;
+
+    Area(int cw, int ch, int camCw, int camCh);
+    ~Area();
+
+    void DrawTiles(int cenXPos, int cenYPos);
+
+    int GetCellWidth();
+    int GetCellHeight();
+
+#ifdef AREA_DEBUG
+    bool debugSignal = false;
+    void Debug();
+#endif
+};
+
 enum enumFloorType // Try to correspond with generator.h
 {
     FLOOR_SKY = 0,
@@ -14,35 +48,6 @@ enum enumFloorType // Try to correspond with generator.h
     FLOOR_VARIABLE = 4,
     FLOOR_BARS = 5
 
-};
-
-class Area
-{
-    int width;    // in cells.
-    int height;
-
-    int pxWidth;  // in pixels.
-    int pxHeight;
-
-    int cameraX; // Top left position of the camera in pixels.
-    int cameraY;
-    int cameraWidth;   // Number of cells to draw.
-    int cameraHeight;
-
-
-
-public:
-    std::vector<int>floor;
-
-    Area(int w, int h);
-    ~Area();
-
-    void DrawTiles();
-
-    void CameraPosition();
-
-    int GetWidth();
-    int GetHeight();
 };
 
 #endif // AREA_H_INCLUDED

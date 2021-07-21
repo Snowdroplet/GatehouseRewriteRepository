@@ -7,16 +7,6 @@
 #include <vector>
 #include <cmath>
 
-enum enumGenType // Try to correspond with area.h
-{
-    GEN_SKY = 0,
-    GEN_EMPTY = 1,
-    GEN_WALL = 2,
-    GEN_DOOR = 3,
-    GEN_VARIABLE = 4,
-    GEN_BARS = 5
-};
-
 class Generator
 {
     std::vector<int>prefabs7x7;
@@ -35,6 +25,16 @@ public:
 
     void GenerateFloor(int genW, int genH, std::vector<int>&result);
 
+};
+
+enum enumGenType // Try to correspond with area.h
+{
+    GEN_SKY = 0,
+    GEN_EMPTY = 1,
+    GEN_WALL = 2,
+    GEN_DOOR = 3,
+    GEN_VARIABLE = 4,
+    GEN_BARS = 5
 };
 
 

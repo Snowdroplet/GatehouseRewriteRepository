@@ -8,6 +8,8 @@ class Actor
 {
 protected:
 
+    bool isHero;
+
     int xCell, yCell;
     float xPosition, yPosition;
     float destXPosition, destYPosition; // Where to move to?
@@ -28,6 +30,7 @@ public:
     Actor();
     ~Actor();
 
+
     void Update();                  // Update state.
     void Drawing();                 // Drawing.
 
@@ -39,7 +42,18 @@ public:
     void SetSprite(int s);
     void SetAnimation(int a);
 
+    float GetXPosition();
+    float GetYPosition();
 
+    float GetXCell();
+    float GetYCell();
+
+    bool IsHero();
+
+#ifdef ACTOR_DEBUG
+    void Debug();
+
+#endif // ACTOR_DEBUG
 };
 
 enum enumAnimationIndexes

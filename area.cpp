@@ -1,20 +1,27 @@
 #include "area.h"
 
-Area::Area(int w, int h)
+Area::Area(int cw, int ch, int camCw, int camCh)
 {
-    width = w;
-    height = h;
+    cellWidth = cw;
+    cellHeight = ch;
 
-    pxWidth = width*CELL_WIDTH;
-    pxHeight = height*CELL_HEIGHT;
+    pxWidth = cellWidth*TILE_WIDTH;
+    pxHeight = cellHeight*TILE_HEIGHT;
 
-    cameraWidth = 24;
-    cameraHeight = 24;
-
-    for(int i = 0; i < height*width; i++)
+    for(int i = 0; i < cellHeight*cellWidth; i++)
     {
         floor.push_back(FLOOR_SKY);
     }
+
+    viewportCellWidth = camCw;
+    viewportCellHeight = camCh;
+
+    viewportPxWidth = viewportCellWidth*TILE_WIDTH;
+    viewportPxHeight = viewportCellHeight*TILE_HEIGHT;
+
+    xDrawCutoff = viewportCellWidth/2;
+    yDrawCutoff = viewportCellHeight/2;
+
 }
 
 Area::~Area()
@@ -22,33 +29,77 @@ Area::~Area()
 
 }
 
-void Area::DrawTiles()
+void Area::DrawTiles(int cenXPos, int cenYPos)
 {
-    for(int y = 0; y < height; y++)
-    {
-        for(int x = 0; x < width; x++)
-        {
-            al_draw_bitmap_region(gfxTileSheet,
+    int cenXCell = cenXPos/TILE_WIDTH;
+    int cenYCell = cenYPos/TILE_HEIGHT;
 
-                                  floor[y*width+x]*CELL_WIDTH,
+    int startXCell = cenXCell-xDrawCutoff;
+    if(startXCell < 0)
+        startXCell = 0;
+
+    int startYCell = cenYCell-yDrawCutoff;
+    if(startYCell < 0)
+        startYCell = 0;
+
+    int endXCell = cenXCell+xDrawCutoff;
+    if(endXCell > cellWidth)
+        endXCell = cellWidth;
+
+    int endYCell = cenYCell+yDrawCutoff;
+    if(endYCell > cellHeight)
+        endYCell = cellHeight;
+
+    for(int y = startYCell; y < endYCell; y++)
+    {
+        for(int x = startXCell; x < endXCell; x++)
+        {
+
+            int drawTile = floor[y*cellWidth+x];
+            if(drawTile != FLOOR_SKY)
+                al_draw_bitmap_region(gfxTileSheet,
+
+                                  drawTile*TILE_WIDTH,
                                   0,
 
-                                  CELL_WIDTH,
-                                  CELL_HEIGHT,
+                                  TILE_WIDTH,
+                                  TILE_HEIGHT,
 
-                                  x*CELL_WIDTH,
-                                  y*CELL_HEIGHT,
+                                  x*TILE_WIDTH + viewportPxWidth/2  - cenXPos,
+                                  y*TILE_HEIGHT + viewportPxHeight/2 - cenYPos,
                                   0);
         }
     }
+
+#ifdef AREA_DEBUG
+    if(debugSignal)
+    {
+        debugSignal = false;
+
+            std::cout << "-- area tile drawing --" << std::endl;
+            std::cout << "cenXPos: " << cenXPos << " || cenYPos: " << cenYPos << std::endl;
+            std::cout << "cenXCell: " << cenXCell << " || cenYCell: " << cenYCell << std::endl;
+            std::cout << "startXCell: " << startXCell << " || startYCell: " << startYCell << std::endl;
+            std::cout << "endXCell: " << endXCell << " || endYCell " << endYCell << std::endl;
+    }
+#endif // AREA_DEBUG
+
 }
 
-int Area::GetWidth()
+int Area::GetCellWidth()
 {
-    return width;
+    return cellWidth;
 }
 
-int Area::GetHeight()
+int Area::GetCellHeight()
 {
-    return height;
+    return cellHeight;
 }
+
+#ifdef AREA_DEBUG
+void Area::Debug()
+{
+    debugSignal = true;
+
+}
+#endif // AREA_DEBUG
